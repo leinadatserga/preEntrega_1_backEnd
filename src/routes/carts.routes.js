@@ -14,7 +14,7 @@ routerCart.get ( "/:cid", async ( req, res ) => {
     const { cid } = req.params;
     const cart = await cartsManager.getCartById ( parseInt ( cid ));
     if ( cart ) {
-        res.status ( 200 ).send ( cart );
+        res.status ( 200 ).json ( cart );
     } else {
         res.status ( 404 ).send ( "Error! Cart don't exist." );
     }
