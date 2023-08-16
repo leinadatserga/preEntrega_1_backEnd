@@ -7,13 +7,13 @@ routerProd.get ( "/", async ( req, res ) => {
     const { limit } = req.query;
     const prods = await productManager.getProducts ();
     const products = prods.slice ( 0, limit );
-    res.status ( 200 ).send ( products );
+    res.status ( 200 ).json ( products );
 });
 routerProd.get ( "/:pid", async ( req, res ) => {
     const { pid } = req.params;
     const prod = await productManager.getProductById ( parseInt ( pid ));
     if ( prod ) {
-        res.status ( 200 ).send ( prod );
+        res.status ( 200 ).json ( prod );
     } else {
         res.status ( 404 ).send ( "Error! Product not found" );
     }
