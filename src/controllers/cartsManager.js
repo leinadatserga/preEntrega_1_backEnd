@@ -41,7 +41,7 @@ export class CartsManager {
             return arrayProds;
         }
     }
-    async addProd ( cid, pid, product ) {
+    async addProd ( cid, pid) {
         const cartJson = await this.getCarts ();
         const prod = { product: parseInt ( pid ), quantity: 1 };
         const findCartId = cartJson.findIndex ( object => object.id === parseInt ( cid ));
